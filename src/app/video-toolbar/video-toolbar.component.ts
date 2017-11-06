@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-video-toolbar',
   templateUrl: './video-toolbar.component.html',

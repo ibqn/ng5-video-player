@@ -6,6 +6,8 @@ import { VideoProgressComponent } from './video-progress/video-progress.componen
 import { VideoToolbarComponent } from './video-toolbar/video-toolbar.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 
+import { VideoService } from './video.service';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    VideoService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
