@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 
 @Injectable()
@@ -8,6 +11,11 @@ export class VideoService {
   private _duration: number;
   private _currentTime: number;
   private _progress: number;
+  private _muted: BehaviorSubject<boolean>;
+  muted$: Observable<boolean>;
+
+  public get muted(): boolean { return this._muted.getValue(); }
+  public set muted(muted: boolean) { this._muted.next(muted); }
 
   public get progress(): number { return this._progress; }
   public set progress(progress: number) { this._progress = progress; }
@@ -30,5 +38,7 @@ export class VideoService {
     this._duration = 0;
     this._currentTime = 0;
     this._progress = 0;
+    this._muted = new BehaviorSubject<boolean>(true);
+    this.muted$ = this._muted.asObservable();
   }
 }

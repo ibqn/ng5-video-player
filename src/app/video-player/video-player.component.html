@@ -1,11 +1,12 @@
 <div id="full-player">
   <div class="embed-responsive embed-responsive-16by9">
-    <video id="video-display"
+    <video id="video-display" #video
       [src]="this.path" class="embed-responsive-item"
       (loadedmetadata)="this.updateDuration($event)"
-      (timeupdate)="this.updateTime($event)" controls></video>
+      (volumechange)="this.updateVolume($event)"
+      (timeupdate)="this.updateTime($event)" controls muted></video>
     <div class="big-play-btn"><i class="fa fa-play"></i></div>
-    <div class="video-title">{{this.title}}</div>
+    <div class="video-title">{{ this.title }}</div>
   </div>
   <app-video-progress></app-video-progress>
   <app-video-toolbar></app-video-toolbar>

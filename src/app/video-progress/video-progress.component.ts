@@ -12,7 +12,10 @@ export class VideoProgressComponent implements OnInit {
 
   constructor(private video: VideoService) { }
 
-  ngOnInit() {
+  public onResize = (e: any) => {
+    const width: number = e.target.innerWidth || 0;
+    this.video.progress = this.video.currentTime / this.video.duration * width;
   }
 
+  ngOnInit() { }
 }

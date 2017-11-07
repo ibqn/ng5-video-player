@@ -1,3 +1,8 @@
 <div class="video-toolbar">
-  <span class="video-time">{{ this.currentTime | timeDisplay }}/{{ this.duration | timeDisplay }}</span>
+  <a class="btn btn-default">
+    <i class="fa"
+      [class.fa-volume-off]="this.muted"
+      [class.fa-volume-up]="!this.muted"></i>
+  </a>
+  <span class="video-time">{{ this.currentTime | timeDisplay }} / {{ this.duration | timeDisplay }}</span>
 </div>

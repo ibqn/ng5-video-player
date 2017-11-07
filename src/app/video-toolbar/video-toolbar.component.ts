@@ -11,6 +11,7 @@ import { TimeDisplayPipe } from '../time-display.pipe';
 export class VideoToolbarComponent implements OnInit {
   public get duration() { return this.video.duration; }
   public get currentTime() { return this.video.currentTime; }
+  public get muted() { return this.video.muted; }
 
   constructor(private video: VideoService) { }
 

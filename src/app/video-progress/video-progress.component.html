@@ -1,4 +1,7 @@
 <div class="video-progress">
-  <div class="progress-meter" [style.width.px]="this.progress"></div>
+  <div class="progress-meter"
+    (window:resize)="this.onResize($event)"
+    [style.width.px]="this.progress"></div>
+  <div class="thumb-scrubber"
+  [style.left.px]="this.progress"></div>
 </div>
-<div class="thumb-scrubber"></div>

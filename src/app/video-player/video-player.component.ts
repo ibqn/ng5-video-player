@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { VideoService } from '../video.service';
 
 
@@ -8,6 +8,8 @@ import { VideoService } from '../video.service';
   styleUrls: ['./video-player.component.sass']
 })
 export class VideoPlayerComponent implements OnInit {
+  @ViewChild('video') el: ElementRef;
+
   public get path() { return this.video.path; }
   public get title() { return this.video.title; }
 
@@ -15,6 +17,12 @@ export class VideoPlayerComponent implements OnInit {
     const duration: number = e.target.duration || 0;
     console.log(`duration loaded: ${duration}`);
     this.video.duration = duration;
+  }
+
+  public updateVolume = (e: any) => {
+    const volume: number = e.target.volume || 0;
+    const muted: boolean = e.target.muted || false;
+    console.log(`volume is ${volume} and muted ${muted}`);
   }
 
   public updateTime = (e: any) => {
@@ -30,5 +38,6 @@ export class VideoPlayerComponent implements OnInit {
   ngOnInit() {
     this.video.path = './assets/video/cow.mp4';
     this.video.title = 'Hungry cow';
+    this.video.muted = true;
   }
 }
