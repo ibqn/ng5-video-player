@@ -19,8 +19,10 @@ export class VideoPlayerComponent implements OnInit {
 
   public updateTime = (e: any) => {
     const currentTime: number = e.target.currentTime || 0;
-    console.log(`current time: ${currentTime}`);
+    const width: number = e.target.offsetWidth || 0;
+    console.log(`current time: ${currentTime} and width ${width}`);
     this.video.currentTime = currentTime;
+    this.video.progress = this.video.currentTime / this.video.duration * width;
   }
 
   constructor(private video: VideoService) { }

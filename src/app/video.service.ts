@@ -7,6 +7,10 @@ export class VideoService {
   private _path: string;
   private _duration: number;
   private _currentTime: number;
+  private _progress: number;
+
+  public get progress(): number { return this._progress; }
+  public set progress(progress: number) { this._progress = progress; }
 
   public get duration(): number { return this._duration; }
   public set duration(duration: number) { this._duration = duration; }
@@ -25,5 +29,6 @@ export class VideoService {
     this._path = '';
     this._duration = 0;
     this._currentTime = 0;
+    this._progress = 0;
   }
 }
