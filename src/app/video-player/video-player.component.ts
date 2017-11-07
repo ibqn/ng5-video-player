@@ -27,6 +27,6 @@ export class VideoPlayerComponent implements OnInit {
 
   ngOnInit() {
     this.video.path = './assets/video/cow.mp4';
-    this.video.title = 'Funny cow';
+    this.video.title = 'Hungry cow';
   }
 }

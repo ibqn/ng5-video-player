@@ -26,5 +26,4 @@ export class VideoService {
     this._duration = 0;
     this._currentTime = 0;
   }
-
 }

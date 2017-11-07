@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoService } from '../video.service';
+import { TimeDisplayPipe } from '../time-display.pipe';
 
 
 @Component({
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-toolbar.component.sass']
 })
 export class VideoToolbarComponent implements OnInit {
+  public get duration() { return this.video.duration; }
+  public get currentTime() { return this.video.currentTime; }
 
-  constructor() { }
+  constructor(private video: VideoService) { }
 
   ngOnInit() {
   }
